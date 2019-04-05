@@ -7,9 +7,9 @@
       </div>
       <div class="panel-body">
         <ul>
-        <% @page.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+          <% @page.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -18,11 +18,6 @@
   <div class="form-group">
     <%= f.label :'Имя страницы' if @page.new_record? %>
     <%= f.text_field :name, class: 'form-control' if @page.new_record? %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :parent_id %>
-    <%= f.select :parent_id, options_from_collection_for_select(@pages, 'id', 'name') %>
   </div>
 
   <div class="form-group">
@@ -39,7 +34,7 @@
     <div class="actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                pages_path, :class => 'btn btn-default' %>
+                  pages_path, :class => 'btn btn-default' %>
     </div>
   </div>
 

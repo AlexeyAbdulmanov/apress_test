@@ -8,12 +8,17 @@
     <tr>
       <th scope="col">Заголовок</th>
       <th scope="col">Текст</th>
+      <th scope="col">Корневая страница</th>
+      <th scope="col">Под-страницы</th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td><%= @page.title %></td>
     <td><%= raw @page.text %></td>
+    <td><%= @page.ancestors.name %></td>
+    <td><%= @page.children.name %></td>
+    <td><%= @page.descendants.name %></td>
   </tr>
   </tbody>
 </table>
