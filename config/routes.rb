@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root 'pages#index'
-  resources :pages
+  resources :pages, param: :slug
 end

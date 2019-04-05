@@ -14,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
+gem 'russian'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

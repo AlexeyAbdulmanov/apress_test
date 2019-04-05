@@ -28,9 +28,7 @@
         <%= link_to "ApressTest", root_path, class: 'navbar-brand'  %>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Add page", "/path1"  %></li>
           </ul>
         </div>
       </div>
@@ -38,11 +36,11 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-7">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
           <div class="well sidebar-nav">
             <h3>Sidebar</h3>
             <ul class="nav nav-list">
@@ -50,6 +48,8 @@
               <li><%= link_to "Link1", "/path1"  %></li>
               <li><%= link_to "Link2", "/path2"  %></li>
               <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "#{Page.last.name}", page_path(Page.last) %></li>
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
