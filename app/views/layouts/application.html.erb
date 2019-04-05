@@ -20,44 +20,16 @@
 
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
     <%= link_to "ApressTest", root_path, class: 'navbar-brand' %>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <dl class="nav navbar-nav">
-        <li><h3><%= link_to "Add", add_path %></h3></li>
-      </dl>
-    </div>
   </div>
 </div>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-7">
+    <div class="col-md-12">
       <%= bootstrap_flash %>
       <%= yield %>
     </div>
-    <div class="col-lg-5">
-      <div class="well sidebar-nav">
-        <h3>Дерево страниц сайта</h3>
-        <ul class="nav nav-list">
-          <% Page.all.each do |page| %>
-            <% if page.parent_id.nil? %>
-              <li>
-                <span><%= link_to page.name, class: 'link' %></span>
-              </li>
-            <% else %>
-              <li>
-                <span>__<%= link_to page.name, class: 'link' %></span>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div><!--/.well -->
-    </div><!--/span-->
   </div><!--/row-->
 
   <footer>
