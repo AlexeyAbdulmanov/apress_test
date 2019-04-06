@@ -15,14 +15,11 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :parent_id %>
+
   <div class="form-group">
     <%= f.label :'Имя страницы' if @page.new_record? %>
     <%= f.text_field :name, class: 'form-control' if @page.new_record? %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :parent_id if @page.new_record? %>
-    <%= f.select :parent_id, options_from_collection_for_select(@pages.roots, 'id', 'name') if @page.new_record? %>
   </div>
 
   <div class="form-group">

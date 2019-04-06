@@ -1,0 +1,3 @@
+<%= link_to page.name, page %>
+<span class="badge"><%= page.children.size %></span>
+<%= link_to "Add subpage", new_page_path(:parent_id => page.id) %>

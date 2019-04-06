@@ -9,6 +9,7 @@
         <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:id) %></th>
+          <th><%= model_class.human_attribute_name(:parent) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
           <th><%= model_class.human_attribute_name(:title) %></th>
           <th><%= t '.actions', :default => t("helpers.actions") %></th>
@@ -18,6 +19,7 @@
         <% @pages.each do |page| %>
           <tr>
             <td><%= link_to page.id, page_path(page) %></td>
+            <td><%= page.parent_id %></td>
             <td><%= page.name %></td>
             <td><%= page.title %></td>
             <td>
@@ -35,28 +37,15 @@
         <% end %>
         </tbody>
       </table>
-
-      <%= link_to "Add root page", add_path, class: 'btn btn-primary' %>
     </div>
 
     <div class="col-md-5">
       <div class="well">
-        <h3>Дерево страниц сайта</h3>
-        <ul class="nav nav-list">
-          <% Page.all.each do |page| %>
-            <% if page.parent_id.nil? %>
-              <li>
-                <span><%= link_to page.name, page_path(page) %></span>
-                <span class="badge"><%= page.children.size %></span>
-              </li>
-            <% else %>
-              <li>
-                <span>__<%= link_to page.name, page_path(page) %></span>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div><!--/.well -->
-    </div><!--/span-->
+        <h3>Дерево страниц сайта:</h3>
+          <%= nested_pages @pages.arrange(:order => :created_at) %>
+      </div>
+      <%= link_to "Add root page", add_path, class: 'btn btn-primary' %>
+    </div>
   </div>
 </div>
+

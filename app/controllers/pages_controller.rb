@@ -5,15 +5,9 @@ class PagesController < ApplicationController
     @pages = Page.all
   end
 
-  def show
-  end
-
   def new
-    @page = Page.new
+    @page = Page.new(parent_id: params[:parent_id])
     @pages = Page.all
-  end
-
-  def edit
   end
 
   def create

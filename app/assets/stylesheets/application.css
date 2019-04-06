@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+/* Trees */
+
+.nested_pages {
+    margin-left: 30px;
+}
+
+.nested_pages .nested_pages .nested_pages .nested_pages {
+    margin-left: 0;
+}

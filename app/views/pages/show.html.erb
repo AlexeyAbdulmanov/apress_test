@@ -15,17 +15,12 @@
         <tr>
           <th scope="col">Заголовок</th>
           <th scope="col">Текст</th>
-          <th scope="col">Корневая страница</th>
-          <th scope="col">Под-страницы</th>
         </tr>
         </thead>
         <tbody>
         <tr>
           <td><%= @page.title %></td>
           <td><%= raw @page.text %></td>
-          <td><%= @page.ancestors.name %></td>
-          <td><%= @page.children.name %></td>
-          <td><%= @page.descendants.name %></td>
         </tr>
         </tbody>
       </table>
@@ -39,27 +34,16 @@
                   :method => 'delete',
                   :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
                   :class => 'btn btn-danger' %>
-      <%= link_to "Add new page", new_page_path, class: 'btn btn-primary' %>
+      <%= link_to "Add new subpage", new_page_path, class: 'btn btn-primary' %>
     </div>
 
     <div class="col-md-4">
       <div class="well">
-        <h3>Дерево под-страниц</h3>
+        <h3>Дерево под-страниц:</h3>
         <ul class="nav nav-list">
-          <% Page.all.each do |page| %>
-            <% if page.parent_id.nil? %>
-              <li>
-                <span><%= link_to page.name, page_path(page) %></span>
-                <span class="badge"><%= page.children.size %></span>
-              </li>
-            <% else %>
-              <li>
-                <span>__<%= link_to page.name, page_path(page) %></span>
-              </li>
-            <% end %>
-          <% end %>
+          <%= nested_pages @page.subtree.arrange(:order => :created_at) %>
         </ul>
-      </div><!--/.well -->
-    </div><!--/span-->
+      </div>
+    </div>
   </div>
 </div>
