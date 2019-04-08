@@ -9,9 +9,8 @@
         <thead>
         <tr>
           <th><%= model_class.human_attribute_name(:id) %></th>
-          <th><%= model_class.human_attribute_name(:parent) %></th>
+          <th><%= model_class.human_attribute_name(:parent_id) %></th>
           <th><%= model_class.human_attribute_name(:name) %></th>
-          <th><%= model_class.human_attribute_name(:title) %></th>
           <th><%= t '.actions', :default => t("helpers.actions") %></th>
         </tr>
         </thead>
@@ -21,7 +20,6 @@
             <td><%= link_to page.id, page_path(page) %></td>
             <td><%= page.parent_id %></td>
             <td><%= page.name %></td>
-            <td><%= page.title %></td>
             <td>
               <%= link_to t('.show', :default => t("helpers.links.show")),
                           page_path(page), :class => 'btn btn-default btn-xs' %>
