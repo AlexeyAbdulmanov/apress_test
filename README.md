@@ -1,24 +1,41 @@
-# README
+# Тестовое задание
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Описание
 
-Things you may want to cover:
+Небольшой сайт, который состоит из текстовых страниц, организованных в иерархию. То есть, одна страница может быть под-страницей другой страницы.
 
-* Ruby version
+На главной странице расположено дерево страниц сайта:
+```
+страница
+  подстраница
+  подстраница
+    подподстраница
+страница
+ ```
+Каждая страница описывается следующими полями:
+- имя страницы - строка, удовлетворяет условию [a-zA-Z0-9_], ДОПУСТИМЫ РУССКИЕ СИМВОЛЫ
+- заголовок страницы - произвольная строка
+- текст страницы - произвольный текст, в котором может присутствовать html-разметка.
 
-* System dependencies
+#### Ruby and Rails version
+```
+ruby 2.5.1
+rails 5.2.3
+```
+***
+### Первый запуск
+```
+bundle install
+```
+Затем подготавливаем базу данных:
+```
+rails db:create
+rails db:migrate
+```
+Запуск сервера:
+```rails s```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Тесты
+```
+rspec
+```

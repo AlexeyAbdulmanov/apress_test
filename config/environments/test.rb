@@ -43,4 +43,9 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.serve_static_files = true
+  config.assets.debug = true
+  config.asset_host = 'http://localhost:3000'
+  config.serve_static_cache_control = 'public, max-age=3600'
 end
