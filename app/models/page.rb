@@ -13,7 +13,14 @@ class Page < ApplicationRecord
 
   private
   def set_slug
-    self.slug = name.parameterize.truncate(80, omission: '')
+    # self.slug = name.parameterize.truncate(80, omission: '')
+    name_as_slug = name.parameterize.truncate(80, omission: '')
+    if parent.present?
+      self.slug = [parent.slug, (slug.blank? ? name_as_slug : slug)].join('/')
+      # self.slug = [parent.slug, (slug.blank? ? name_as_slug : slug.split('/').last)].join('/')
+    else
+      self.slug = name_as_slug if slug.blank?
+    end
   end
 
   def refactor_text

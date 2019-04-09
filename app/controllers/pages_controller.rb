@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @pages = Page.all
   end
@@ -34,7 +33,8 @@ class PagesController < ApplicationController
   end
 
   def add_root
-    @page = Page.new
+    @page = Page.new(parent_id: params[:parent_id])
+    @pages = Page.all
   end
 
   private
