@@ -32,11 +32,6 @@ class PagesController < ApplicationController
     redirect_to pages_url, notice: 'Page was successfully destroyed.'
   end
 
-  def add_root
-    @page = Page.new(parent_id: params[:parent_id])
-    @pages = Page.all
-  end
-
   private
 
   def set_page
@@ -44,6 +39,6 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:name, :title, :text, :parent_id)
+    params.require(:page).permit(:name, :title, :text, :slug, :parent_id)
   end
 end

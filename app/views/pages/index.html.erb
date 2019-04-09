@@ -42,7 +42,7 @@
         <h3>Дерево страниц сайта:</h3>
           <%= nested_pages @pages.arrange(:order => :created_at) %>
       </div>
-      <%= link_to "Add root page", add_path, class: 'btn btn-primary' %>
+      <%= link_to "Add root page", new_page_path, class: 'btn btn-primary' %>
     </div>
   </div>
 </div>
